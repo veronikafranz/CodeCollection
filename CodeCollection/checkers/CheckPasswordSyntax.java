@@ -1,7 +1,7 @@
 
 
 /**
- * A class that checks password for characteristics
+ * A class that checks password syntax for characteristics
  *  
  * @author veron
  */

@@ -10,6 +10,7 @@ public class CheckPasswordSyntax {
 
 	/**
 	 * checks a password for the following characteristics:
+	 * 
 	 * A valid password consists of minimum 8 and maximum 16 characters, 
 	 * contains at least one digit, one upper case and one lower case and no space.
 	 * 

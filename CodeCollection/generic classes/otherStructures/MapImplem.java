@@ -1,4 +1,4 @@
-package lists;
+package otherStructures;
 
 public class MapImplem<K, V> implements Map<K, V> {
 	private K key;

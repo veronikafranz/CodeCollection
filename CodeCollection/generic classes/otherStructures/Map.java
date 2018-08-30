@@ -1,4 +1,4 @@
-package lists;
+package otherStructures;
 
 /**
  * An interface that specifies the relation between two elements, 
@@ -31,7 +31,7 @@ interface Map<K, V> {
 	 * 
 	 * @param key
 	 */
-	public void setSchluessel(K key);
+	public void setKey(K key);
 	
 	/**
 	 * Specifies W, the value of a pair<S, W>

@@ -1,11 +1,13 @@
 
 
+
 /**
- * A class that checks password syntax for characteristics
+ * A class that checks password syntax' validity. 
  *  
- * @author veron
+ * @author veronika franz
+ *
  */
-public class CheckPasswordSyntax {
+public class PasswordSyntax {
 	
 
 	/**

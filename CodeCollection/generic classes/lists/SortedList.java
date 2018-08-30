@@ -43,11 +43,28 @@ public class SortedList <E extends Comparable<E>> {
 		return containsValue(node.getNext(), value);
 	}
 	
-	//TODO size()
+	public int size() {
+		return size(this.head);
+	}
 	
-	//TODO isEmpty()
+	private int size(ListNode<E> node) {
+		int size = 0;
+		//case: list empty or last node reached
+		if(this.head == null) {
+			return size;
+		}
+		//case: recursive get Next (+ 1 for current node)
+		return size(node.getNext()) + 1;		
+	}
 	
-	//TODO clear()
+	public boolean isEmpty() {
+		
+		return (size() == 0);
+	}
+	
+	public void clear() {
+		this.head = null;
+	}
 	
 	//TODO removeValue
 

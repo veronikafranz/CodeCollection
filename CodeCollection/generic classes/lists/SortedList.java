@@ -60,8 +60,37 @@ public class SortedList <E extends Comparable<E>> {
 		return containsValue(node.getNext(), entry);
 	}
 	
-	public int size() {
-		return size(this.head);
+	public SortedList<E> subList(int fromIndex, int toIndex){
+		//case: size of list (to be copied) smaller than start index
+		//specified start Index is negative
+		//end Index smaller than start Index
+		if(this.size() < fromIndex 
+				|| fromIndex < 0 
+				|| toIndex < fromIndex
+				|| toIndex > this.size()) {
+			return null;
+		}
+		//create new SortedList
+		SortedList<E> subList = new SortedList<E>();
+		subList.head = subList(this.head, fromIndex, toIndex - fromIndex);
+		return subList;
+	}
+	
+	private ListNode<E> subList(ListNode<E> node, int steps, int size){
+		//case: size (end index - start index) = 0
+		if(size == 0) {
+			return null;
+		}
+		//start index = 0 or reached 0
+		if(steps == 0) {
+			//create new subListNode with entry of node-original
+			ListNode<E> subListNode = new ListNode<E>(node.getEntry());
+			//subListNode - set next node, size - 1 each round
+			subListNode.setNext(subList(node.getNext(), 0, size - 1));
+			return subListNode;
+		}
+		//get next recursive, steps - 1 each round
+		return subList(node.getNext(), steps - 1, size);
 	}
 	
 	private int size(ListNode<E> node) {
@@ -107,6 +136,10 @@ public class SortedList <E extends Comparable<E>> {
 		System.out.print(" ");
 	}
 	
+	public int size() {
+		return size(this.head);
+	}
+
 	public boolean isEmpty() {
 		return (size() == 0);
 	}

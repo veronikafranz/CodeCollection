@@ -204,7 +204,8 @@ public class LinkedList<T extends Comparable<T>> {
 	public LinkedList<T> subList(int fromIndex, int toIndex) {
 		if(this.size() < toIndex 
 				|| fromIndex < 0 
-				|| toIndex < fromIndex) {
+				|| toIndex < fromIndex
+				|| toIndex > this.size()) {
 			return null;
 		}
 		LinkedList<T> list = new LinkedList<T>();

@@ -44,9 +44,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkDigits(char[] password) {
-		//Zifferprüfung
+		//digits check
 		for(int i = 0; i < password.length; i++) {
-			//wenn enthalten
+			//digits present
 			if(Character.isDigit(password[i])) {
 				return true;				
 			}
@@ -55,9 +55,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkDigits(String password) {
-		//Zifferprüfung
+		//check digits
 		for(int i = 0; i < password.length(); i++) {
-			//wenn enthalten
+			//digit present
 			if(Character.isDigit(password.charAt(i))) {
 				return true;				
 			}
@@ -66,9 +66,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkUpperCase(char[] password) {
-		//upperCase-Prüfung
+		//upperCase check
 		for(int i = 0; i < password.length; i++) {
-			//wenn upperCase enthalten
+			//upper case present
 			if(Character.isUpperCase(password[i])) {
 				return true;
 			}
@@ -77,9 +77,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkUpperCase(String password) {
-		//upperCase-Prüfung
+		//upperCase check
 		for(int i = 0; i < password.length(); i++) {
-			//wenn upperCase enthalten
+			//upperCase present
 			if(Character.isUpperCase(password.charAt(i))) {
 				return true;
 			}
@@ -88,9 +88,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkLowerCase(char[] password) {
-		//lowerCase-Prüfung
+		//lowerCase check
 		for(int i = 0; i < password.length; i++) {
-			//wenn lowerCase enthalten
+			//lowerCase present
 			if(Character.isLowerCase(password[i])) {
 				return true;
 			}
@@ -99,9 +99,9 @@ public class PasswordSyntax {
 	}
 
 	private boolean checkLowerCase(String password) {
-		//lowerCase-Prüfung
+		//lowerCase check
 		for(int i = 0; i < password.length(); i++) {
-			//wenn lowerCase enthalten
+			//lowerCase present
 			if(Character.isLowerCase(password.charAt(i))) {
 				return true;
 			}
@@ -110,9 +110,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean containsSpace(char[] password) {
-		//containsSpace-Prüfung
+		//containsSpace-check
 		for(int i = 0; i < password.length; i++) {
-			//wenn Space enthalten
+			//Space present
 			if(password[i] == ' ') {
 				return true;
 			}
@@ -121,9 +121,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean containsSpace(String password) {
-		//containsSpace-Prüfung
+		//containsSpace check
 		for(int i = 0; i < password.length(); i++) {
-			//wenn Space enthalten
+			//space present
 			if(password.charAt(i) == ' ') {
 				return true;
 			}
@@ -132,6 +132,7 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkLength(char[] password) {
+		//check length between 8 and 16
 		if(password.length >= 8 && password.length < 17) {
 			return true;
 		}
@@ -139,6 +140,7 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkLength(String password) {
+		//check length between 8 and 16
 		if(password.length() >= 8 && password.length() < 17) {
 			return true;
 		}

@@ -8,7 +8,8 @@ package lists;
 public class LinkedList<T extends Comparable<T>> {
 	private ListNode<T> head;
 	
-	private static String ASC, DESC;
+	private static String ASC = "ascending";
+	private static String DESC = "descending";
 	
 	/**
 	 * Create new Linked List.
@@ -424,4 +425,6 @@ public class LinkedList<T extends Comparable<T>> {
 	public void clear() {
 		this.head = null;
 	}
+	
+	
 }

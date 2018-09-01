@@ -4,19 +4,19 @@ import java.util.LinkedList;
 
 public class Insertionsort<T extends Comparable<T>> {
 
-	public void sortAscending(T[] feld) {
-		//case: feld empty
-		if(feld.length <= 0) {
+	public void sortAscending(T[] array) {
+		//case: array empty
+		if(array.length <= 0) {
 			return;
 		}
-		for(int i = 1; i < feld.length; i++) {
+		for(int i = 1; i < array.length; i++) {
 			for(int j = i; j > 0; j--) {
 				//if j-1 entry is bigger than j
-				if(feld[j-1].compareTo(feld[j]) > 0) {
+				if(array[j-1].compareTo(array[j]) > 0) {
 					//switch
-					T temp = feld[j-1];
-					feld[j-1] = feld[j];
-					feld[j] = temp;					
+					T temp = array[j-1];
+					array[j-1] = array[j];
+					array[j] = temp;					
 				} else {
 					break;
 				}

@@ -4,22 +4,22 @@ import java.util.LinkedList;
 
 public class Bubblesorter<T extends Comparable<T>> {
 
-	public void sortAscending(T[] feld) {
+	public void sortAscending(T[] array) {
 		
-		for(int i = 0; i < feld.length - 1; i++) {
+		for(int i = 0; i < array.length - 1; i++) {
 			//assumption field is sorted = true
 			boolean sorted = true;
 			//parse the field
 			//for each i round (j less i) 
 			//as the last indexes (j - i - 1) are considered to be sorted after each j-round
-			for(int j = 0; j < feld.length - 1 - i; j++) {
+			for(int j = 0; j < array.length - 1 - i; j++) {
 				//compare j and j+1
 				//if j is larger that j+1
-				if(feld[j].compareTo(feld[j+1]) > 0) {
+				if(array[j].compareTo(array[j+1]) > 0) {
 					//switch
-					T temp = feld[j];
-					feld[j] = feld[j+1];
-					feld[j+1] = temp;
+					T temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
 					//assumption field is sorted = false,
 					//as unsorted values had been found
 					sorted = false;					

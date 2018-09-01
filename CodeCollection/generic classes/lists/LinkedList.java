@@ -8,6 +8,8 @@ package lists;
 public class LinkedList<T extends Comparable<T>> {
 	private ListNode<T> head;
 	
+	private static String ASC, DESC;
+	
 	/**
 	 * Create new Linked List.
 	 * 
@@ -57,6 +59,19 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 	
 	/**
+	 * Returns the entry of the first node of the list.
+	 * 
+	 * @return entry of first node,
+	 * null if list is empty
+	 */
+	public T getFirstEntry() {
+		if(size() == 0) {
+			return null;
+		}
+		return this.head.getEntry();
+	}
+	
+	/**
 	 * Returns the entry of the node at a specified index.
 	 * 
 	 * @param index
@@ -74,6 +89,28 @@ public class LinkedList<T extends Comparable<T>> {
 				current = current.getNext();
 		}
 		return current.getEntry();
+	}
+	
+	/**
+	 * Set the entry of a ListNode located at a specified index.
+	 * 
+	 * @param index
+	 * @param entry
+	 */
+	public void setEntryAtIndexIterativ(int index, T entry) {
+		//case: index does not exist
+		if(index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("Index shoulb be "
+					+ "<= 0 and < " + size() + ".");
+		}//start at first node (head of list)
+		ListNode<T> current = this.head;
+		for(int i = 0; i < index; i++) {
+			//go to index
+			current = current.getNext();
+		}
+		//set entry
+		current.setEntry(entry);
+		
 	}
 	
 	/**
@@ -225,6 +262,71 @@ public class LinkedList<T extends Comparable<T>> {
 		return subList(node.getNext(), steps - 1, size);
 	}
 	
+	/**
+	 * Sorts list according to parameter either ascending or descending.
+	 * 
+	 * @param arg ASC for sorting ascending,
+	 * else DESC for sorting descending
+	 */
+	public void bubblesort(String arg) {
+		if(arg.equals(ASC)) {
+			this.bubblesortAscending();
+		}
+		if(arg.equals(DESC)) {
+			this.bubblesortDescending();
+		}
+	}
+	
+	private void bubblesortAscending() {
+		//case: list empty
+		if(this.size() == 0) {
+			return;
+		}
+		//sort
+		for(int i = 0; i < this.size(); i++) {
+			//assumption: list is sorted = true
+			boolean sorted = true;
+			
+			for(int j = 0; j < this.size() - 1 - i; j++) {
+				//if value(j) is larger then value(j+1) switch
+				if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
+					//switch entries
+					T temp = this.getEntryAtIndexIterativ(j);
+					this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
+					this.setEntryAtIndexIterativ((j+1), temp);
+				}
+			}
+			if(sorted) {
+				//no changes necessary
+				break;
+			}
+		}
+	}
+	
+	private void bubblesortDescending() {
+		//case: list is empty
+		if(this.size() == 0) {
+			return;
+		}
+		//sort
+		for(int i = 0; i < this.size(); i++) {
+			//assumption: list is sorted = true
+			boolean sorted = true;
+			for(int j = 0; i < this.size() - 1 - i; j++) {
+				//if value j is bigger than j+1
+				if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
+					//switch entries
+					T temp = this.getEntryAtIndexIterativ(j);
+					this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ(j+1));
+					this.setEntryAtIndexIterativ(j+1, temp);
+				}
+			}
+			if(sorted) {
+				//no changes necessary
+				break;
+			}
+		}
+	}
 	
 	/**
 	 * Sort the current list

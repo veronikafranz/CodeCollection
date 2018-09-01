@@ -270,14 +270,14 @@ public class LinkedList<T extends Comparable<T>> {
 	 */
 	public void bubblesort(String arg) {
 		if(arg.equals(ASC)) {
-			this.bubblesortAscending();
+			this.bubblesort(1);
 		}
 		if(arg.equals(DESC)) {
-			this.bubblesortDescending();
+			this.bubblesort(-1);
 		}
 	}
 	
-	private void bubblesortAscending() {
+	private void bubblesort(int value) {
 		//case: list empty
 		if(this.size() == 0) {
 			return;
@@ -288,12 +288,24 @@ public class LinkedList<T extends Comparable<T>> {
 			boolean sorted = true;
 			
 			for(int j = 0; j < this.size() - 1 - i; j++) {
-				//if value(j) is larger then value(j+1) switch
-				if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
-					//switch entries
-					T temp = this.getEntryAtIndexIterativ(j);
-					this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
-					this.setEntryAtIndexIterativ((j+1), temp);
+				//sort ascending
+				if(value == 1) {
+					//if value(j) is larger than value(j+1) switch
+					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
+						//switch entries
+						T temp = this.getEntryAtIndexIterativ(j);
+						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
+						this.setEntryAtIndexIterativ((j+1), temp);
+					}
+					//sort descending
+				} else if(value == -1) {
+					//if value(j) is smaller than value(j+1) switch
+					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) < 0) {
+						//switch entries
+						T temp = this.getEntryAtIndexIterativ(j);
+						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
+						this.setEntryAtIndexIterativ((j+1), temp);
+					}
 				}
 			}
 			if(sorted) {
@@ -303,30 +315,6 @@ public class LinkedList<T extends Comparable<T>> {
 		}
 	}
 	
-	private void bubblesortDescending() {
-		//case: list is empty
-		if(this.size() == 0) {
-			return;
-		}
-		//sort
-		for(int i = 0; i < this.size(); i++) {
-			//assumption: list is sorted = true
-			boolean sorted = true;
-			for(int j = 0; i < this.size() - 1 - i; j++) {
-				//if value j is bigger than j+1
-				if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
-					//switch entries
-					T temp = this.getEntryAtIndexIterativ(j);
-					this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ(j+1));
-					this.setEntryAtIndexIterativ(j+1, temp);
-				}
-			}
-			if(sorted) {
-				//no changes necessary
-				break;
-			}
-		}
-	}
 	
 	/**
 	 * Sort the current list

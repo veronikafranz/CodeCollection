@@ -60,24 +60,25 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public static void main(String[] args) {
 		
 		String[] array1 = new String[] {"abc", "jkl", "def", "pqi", "ghi", "mno"};
-		
+		String[] array4 = new String[] {"Pqj", "aac", "Aac", "pqj", "Aab", "aab", "Mnn", "mnn"};
 		
 		String[] array1a = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqi" };
-		for(int i = 0; i < array1.length; i++) {
-			System.out.print(array1[i] + " ");
+		
+		for(int i = 0; i < array4.length; i++) {
+			System.out.print(array4[i] + " ");
 		}
 		System.out.println("");
 		
 		Bubblesorter<String> bubble1 = new Bubblesorter<String>();
-		bubble1.sortAscending(array1);
+		bubble1.sortAscending(array4);
 		
-		for(int i = 0; i < array1.length; i++) {
-			System.out.print(array1[i] + " ");
+		for(int i = 0; i < array4.length; i++) {
+			System.out.print(array4[i] + " ");
 		}
-		System.out.println("");
+		/*System.out.println("");
 		for(int i = 0; i < array1a.length; i++) {
 			System.out.print(array1a[i] + " ");
-		}
+		}*/
 
 		
 	}

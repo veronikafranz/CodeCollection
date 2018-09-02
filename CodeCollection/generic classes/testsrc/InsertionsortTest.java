@@ -9,13 +9,13 @@ public class InsertionsortTest extends TestCase {
 	Insertionsort<String> insertion1;
 	Insertionsort<Integer> insertion2;	
 
-	LinkedList<String> list1, list2, list3; 
-	LinkedList<String> list1s, list2s, list3s;
+	LinkedList<String> list1, list2, list3, list4; 
+	LinkedList<String> list1s, list2s, list3s, list4s;
 	LinkedList<Integer> list5, list6;
 	LinkedList<Integer> list5s, list6s;
 	
-	String[] array1, array2, array3;
-	String[] array1s, array2s, array3s;
+	String[] array1, array2, array3, array4;
+	String[] array1s, array2s, array3s, array4s;
 	Integer[] array5, array6, array6s;
 	Integer[] array5s;
 
@@ -29,6 +29,7 @@ public class InsertionsortTest extends TestCase {
 		array1 = new String[] {"mno", "jkl", "def", "pqi", "ghi", "abc"};
 		array2 = new String[] {"mno", "mno", "def", "pqi", "ghi", "abc"};
 		array3 = new String[] {"mno", "mnn", "aac", "pqi", "ghi", "aab"};
+		array4 = new String[] {"Pqj", "aac", "Aac", "pqj", "Aab", "aab", "Mnn", "mnn"};
 		
 		array5 = new Integer[] {456, 789, 258, 796, 235, 845, 1, -89, -1, 0};
 		array6 = new Integer[] {456, 456, 258, 796, 1, 845, 1, -89, -1, 0};
@@ -37,6 +38,7 @@ public class InsertionsortTest extends TestCase {
 		array1s = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqi" };
 		array2s = new String[] {"abc", "def", "ghi", "mno", "mno", "pqi" };
 		array3s = new String[] {"aab", "aac", "ghi", "mnn", "mno", "pqi" };
+		array4s = new String[] {"Aab", "Aac", "Mnn", "Pqj", "aab", "aac", "mnn", "pqj"};
 		
 		array5s = new Integer[] {-89, -1, 0, 1, 235, 258, 456, 789, 796, 845};
 		array6s = new Integer[] {-89, -1, 0, 1, 1, 258, 456, 456, 796, 845};
@@ -45,9 +47,11 @@ public class InsertionsortTest extends TestCase {
 		list1 = new LinkedList<String>();
 		list2 = new LinkedList<String>();
 		list3 = new LinkedList<String>();
+		list4 = new LinkedList<String>();
 		list1s = new LinkedList<String>();
 		list2s = new LinkedList<String>();
 		list3s = new LinkedList<String>();
+		list4s = new LinkedList<String>();
 		
 		list5 = new LinkedList<Integer>();
 		list6 = new LinkedList<Integer>();
@@ -69,6 +73,10 @@ public class InsertionsortTest extends TestCase {
 			list5s.add(array5s[i]);
 			list6s.add(array6s[i]);
 		}
+		for(int i = array4.length - 1; i <= 0; i++) {
+			list4.add(array4[i]);
+			list4s.add(array4s[i]);
+		}
 		
 	}
 
@@ -88,6 +96,11 @@ public class InsertionsortTest extends TestCase {
 		for(int i = 0; i < array3.length; i++) {
 			assertEquals("Ascending sorting of String with differences in 2nd or 3rd letter" 
 					+ " failed.", true, array3[i].equals(array3s[i]));
+		}
+		insertion1.sortAscending(array4);
+		for(int i = 0; i < array4.length; i++) {
+			assertEquals("Ascending sorting of String with upper and lower case" 
+					+ " failed.", true, array4[i].equals(array4s[i]));
 		}
 	}
 	
@@ -120,6 +133,11 @@ public void testSortAscendingIntegerArray() {
 		for(int i = 0; i < list3.size(); i++) {
 			assertEquals("Ascending sorting of String" 
 					+ "failed.", true, list3.get(0).equals(list3s.get(i)));
+		}
+		insertion1.sortAscending(list4);
+		for(int i = 0; i < list4.size(); i++) {
+			assertEquals("Ascending sorting of String" 
+					+ "failed.", true, list4.get(0).equals(list4s.get(i)));
 		}
 	}
 	

@@ -44,7 +44,6 @@ public class Selectionsort<T extends Comparable<T>> {
 			if(indexMax != list.size() - 1 - i) {
 				//switch entries
 				T temp = list.get(list.size() - 1 - i);
-		//TODO check whether it's:  set(index, T value)
 				list.set(list.size() - 1 - i, list.get(indexMax));
 				list.set(indexMax, temp);
 			}

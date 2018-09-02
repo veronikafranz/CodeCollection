@@ -264,110 +264,6 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 	
 	/**
-	 * Sorts list according to parameter either ascending or descending.
-	 * 
-	 * @param arg ASC for sorting ascending,
-	 * else DESC for sorting descending
-	 */
-	public void bubblesort(String arg) {
-		if(arg.equals(ASC)) {
-			this.bubblesort(1);
-		}
-		if(arg.equals(DESC)) {
-			this.bubblesort(-1);
-		}
-	}
-	
-	private void bubblesort(int value) {
-		//case: list empty
-		if(this.size() == 0) {
-			return;
-		}
-		//sort
-		for(int i = 0; i < this.size(); i++) {
-			//assumption: list is sorted = true
-			boolean sorted = true;
-			
-			for(int j = 0; j < this.size() - 1 - i; j++) {
-				//sort ascending
-				if(value == 1) {
-					//if value(j) is larger than value(j+1) switch
-					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
-						//switch entries
-						T temp = this.getEntryAtIndexIterativ(j);
-						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
-						this.setEntryAtIndexIterativ((j+1), temp);
-					}
-					//sort descending
-				} else if(value == -1) {
-					//if value(j) is smaller than value(j+1) switch
-					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) < 0) {
-						//switch entries
-						T temp = this.getEntryAtIndexIterativ(j);
-						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
-						this.setEntryAtIndexIterativ((j+1), temp);
-					}
-				}
-			}
-			if(sorted) {
-				//no changes necessary
-				break;
-			}
-		}
-	}
-	
-	
-	/**
-	 * Sort the current list
-	 * 
-	 * @return sorted list
-	 */
-	public LinkedList<T> mergeSort() {
-		int length = this.size();
-		if(length <= 1) {
-			return this;
-		}
-		LinkedList<T> leftSorted 
-			= this.subList(0, length / 2).mergeSort();
-		LinkedList<T> rightSorted 
-			= this.subList(length / 2, length).mergeSort();
-		leftSorted.mergeWith(rightSorted);
-		return leftSorted;
-	}
-	
-	private void mergeWith(LinkedList<T> otherList) {
-		//case: list is empty
-		if(otherList.isEmpty()) {
-			return;
-		}
-		if(this.isEmpty()) {
-			this.head = otherList.head;
-			return;
-		}
-
-		if(otherList.head.getEntry().compareTo(this.head.getEntry()) <= 0) {
-			T first = otherList.removeFirst();
-			this.mergeWith(otherList);
-			this.add(first);
-			return;
-		}
-		T first = this.removeFirst();
-		otherList.mergeWith(this);
-		otherList.add(first);
-		this.head = otherList.head;
-	}
-	
-	private T removeFirst() {
-		if(this.head == null) {
-			throw new IndexOutOfBoundsException("empty list");
-		}
-		T first = this.head.getEntry();
-		this.head = this.head.getNext();
-		return first;
-	}
-	
-	
-	/**
 	 * Print this list (output console)
 	 * 
 	 */
@@ -424,6 +320,110 @@ public class LinkedList<T extends Comparable<T>> {
 	 */
 	public void clear() {
 		this.head = null;
+	}
+	
+	// START sorting algorithms
+
+	/**
+	 * Sorts list according to parameter either ascending or descending.
+	 * 
+	 * @param arg ASC for sorting ascending,
+	 * else DESC for sorting descending
+	 */
+	public void bubblesort(String arg) {
+		if(arg.equals(ASC)) {
+			this.bubblesort(1);
+		}
+		if(arg.equals(DESC)) {
+			this.bubblesort(-1);
+		}
+	}
+
+	private void bubblesort(int value) {
+		//case: list empty
+		if(this.size() == 0) {
+			return;
+		}
+		//sort
+		for(int i = 0; i < this.size(); i++) {
+			//assumption: list is sorted = true
+			boolean sorted = true;
+			
+			for(int j = 0; j < this.size() - 1 - i; j++) {
+				//sort ascending
+				if(value == 1) {
+					//if value(j) is larger than value(j+1) switch
+					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
+						//switch entries
+						T temp = this.getEntryAtIndexIterativ(j);
+						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
+						this.setEntryAtIndexIterativ((j+1), temp);
+					}
+					//sort descending
+				} else if(value == -1) {
+					//if value(j) is smaller than value(j+1) switch
+					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) < 0) {
+						//switch entries
+						T temp = this.getEntryAtIndexIterativ(j);
+						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
+						this.setEntryAtIndexIterativ((j+1), temp);
+					}
+				}
+			}
+			if(sorted) {
+				//no changes necessary
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Sort the current list
+	 * 
+	 * @return sorted list
+	 */
+	public LinkedList<T> mergeSort() {
+		int length = this.size();
+		if(length <= 1) {
+			return this;
+		}
+		LinkedList<T> leftSorted 
+			= this.subList(0, length / 2).mergeSort();
+		LinkedList<T> rightSorted 
+			= this.subList(length / 2, length).mergeSort();
+		leftSorted.mergeWith(rightSorted);
+		return leftSorted;
+	}
+
+	private void mergeWith(LinkedList<T> otherList) {
+		//case: list is empty
+		if(otherList.isEmpty()) {
+			return;
+		}
+		if(this.isEmpty()) {
+			this.head = otherList.head;
+			return;
+		}
+	
+		if(otherList.head.getEntry().compareTo(this.head.getEntry()) <= 0) {
+			T first = otherList.removeFirst();
+			this.mergeWith(otherList);
+			this.add(first);
+			return;
+		}
+		T first = this.removeFirst();
+		otherList.mergeWith(this);
+		otherList.add(first);
+		this.head = otherList.head;
+	}
+
+	private T removeFirst() {
+		if(this.head == null) {
+			throw new IndexOutOfBoundsException("empty list");
+		}
+		T first = this.head.getEntry();
+		this.head = this.head.getNext();
+		return first;
 	}
 	
 	

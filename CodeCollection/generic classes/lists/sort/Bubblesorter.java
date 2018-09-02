@@ -43,7 +43,6 @@ public class Bubblesorter<T extends Comparable<T>> {
 				if(list.get(j).compareTo(list.get(j+1)) > 0) {
 					//switch
 					T temp = list.get(j);
-//TODO check whether it's: set(index, value)
 					list.set(j, list.get(j+1));
 					list.set((j+1), temp);
 					//set sorted false as unsorted elements found

@@ -1,9 +1,10 @@
-package lists.sort;
+package sorting;
 
 import java.util.LinkedList;
 
 public class Selectionsort<T extends Comparable<T>> {
 
+	//TODO test
 	public void sortAscending(T[] array) {
 
 		for(int i = 0; i < array.length - 1; i++) {
@@ -26,6 +27,7 @@ public class Selectionsort<T extends Comparable<T>> {
 		}
 	}
 	
+	//TODO test
 	public void sortAscending(LinkedList<T> list) {
 		
 		for(int i = 0; i < list.size() - 1; i++) {

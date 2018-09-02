@@ -240,15 +240,30 @@ public class LinkedList<T extends Comparable<T>> {
 	 * @return sublist
 	 */
 	public LinkedList<T> subList(int fromIndex, int toIndex) {
+		//list size smaller than specified index
 		if(this.size() < toIndex 
+				//specified index smaller than 0
 				|| fromIndex < 0 
+				//end index smaller than start index
 				|| toIndex < fromIndex
+				//end index bigger than list size
 				|| toIndex > this.size()) {
 			return null;
 		}
+		//create new list
 		LinkedList<T> list = new LinkedList<T>();
+		//add sublist entries to list head
 		list.head = subList(this.head, fromIndex, toIndex - fromIndex);
 		return list;
+	}
+	
+	/**
+	 * Returns a copy of the list.
+	 * 
+	 * @return copy of a list
+	 */
+	public LinkedList<T> copyList() {
+		return subList(0, size());
 	}
 	
 	private ListNode<T> subList(ListNode<T> node, int steps, int size) {
@@ -262,6 +277,8 @@ public class LinkedList<T extends Comparable<T>> {
 		}
 		return subList(node.getNext(), steps - 1, size);
 	}
+	
+	//TODO copyList
 	
 	/**
 	 * Print this list (output console)
@@ -323,13 +340,12 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 	
 	// START sorting algorithms
+	
+	//TODO insertionSort
+	
+	//TODO selectionSort
 
-	/**
-	 * Sorts list according to parameter either ascending or descending.
-	 * 
-	 * @param arg ASC for sorting ascending,
-	 * else DESC for sorting descending
-	 */
+	//TODO test
 	public void bubblesort(String arg) {
 		if(arg.equals(ASC)) {
 			this.bubblesort(1);
@@ -350,14 +366,15 @@ public class LinkedList<T extends Comparable<T>> {
 			boolean sorted = true;
 			
 			for(int j = 0; j < this.size() - 1 - i; j++) {
-				//sort ascending
+				//TODO sort ascending
 				if(value == 1) {
 					//if value(j) is larger than value(j+1) switch
 					if(this.getEntryAtIndexIterativ(j).compareTo(this.getEntryAtIndexIterativ(j+1)) > 0) {
 						//switch entries
-						T temp = this.getEntryAtIndexIterativ(j);
-						this.setEntryAtIndexIterativ(j, this.getEntryAtIndexIterativ((j+1)));
-						this.setEntryAtIndexIterativ((j+1), temp);
+						T tempBigger = this.getEntryAtIndexIterativ(j);
+						T tempSmaller = this.getEntryAtIndexIterativ(j+1);
+						this.setEntryAtIndexIterativ(j, tempSmaller);
+						this.setEntryAtIndexIterativ((j+1), tempBigger);
 					}
 					//sort descending
 				} else if(value == -1) {
@@ -377,11 +394,7 @@ public class LinkedList<T extends Comparable<T>> {
 		}
 	}
 
-	/**
-	 * Sort the current list
-	 * 
-	 * @return sorted list
-	 */
+	//TODO test
 	public LinkedList<T> mergeSort() {
 		int length = this.size();
 		if(length <= 1) {
@@ -405,7 +418,7 @@ public class LinkedList<T extends Comparable<T>> {
 			return;
 		}
 	
-		if(otherList.head.getEntry().compareTo(this.head.getEntry()) <= 0) {
+		if(otherList.head.getEntry().compareTo(this.head.getEntry()) < 0) {
 			T first = otherList.removeFirst();
 			this.mergeWith(otherList);
 			this.add(first);
@@ -424,6 +437,25 @@ public class LinkedList<T extends Comparable<T>> {
 		T first = this.head.getEntry();
 		this.head = this.head.getNext();
 		return first;
+	}
+	
+	public static void main(String[] args) {
+		LinkedList<Integer> liste = new LinkedList<Integer>();
+		
+		//liste.add(100);
+		//liste.add(8);
+		//liste.add(69);
+		
+		//liste.mergeSort();
+		System.out.println(liste.isEmpty());
+		//System.out.println(liste.getEntryAtIndexIterativ(1));
+		//System.out.println(liste.getEntryAtIndexIterativ(2));
+		//System.out.println(liste.getEntryAtIndexIterativ(3));
+		LinkedList<Integer> liste2 = liste.copyList();
+		System.out.println(liste2.isEmpty());
+		//System.out.println(liste2.getEntryAtIndexIterativ(1));
+		//System.out.println(liste2.getEntryAtIndexIterativ(2));
+		//System.out.println(liste2.getEntryAtIndexIterativ(3));
 	}
 	
 	

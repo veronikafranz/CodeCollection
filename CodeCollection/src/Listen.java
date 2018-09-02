@@ -2,6 +2,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.lang.Comparable;
 
 public class Listen {
 
@@ -37,27 +38,30 @@ public class Listen {
 		
 		
 		//neue Liste generischen Typs erzeugen
-		List<String> l1 = new LinkedList<String>();
-		List<Integer> l2 = new LinkedList<Integer>();
+		List<String> l1s = new LinkedList<String>();
+		List<Integer> l2i = new LinkedList<Integer>();
+		
 		//Zeichenkette zu l1 hinzufügen
-		l1.add("Hallo");
+		l1s.add("Hallo");
 		//Zahl zu l2 hinzufügen
-		l2.add(3);
+		l2i.add(3);
 		//das erste Element aus l1 entnehmen
-		String zeichenkette = l1.get(0);
+		String zeichenkette = l1s.get(0);
 		//das erste Element von l2 entnehmen
-		int zahl = l2.get(0);
-		l2.add(4);
-		l2.add(3);
-		l2.add(5);
+		int zahl = l2i.get(0);
+		l2i.add(4);
+		l2i.add(3);
+		l2i.add(5);
 		//Teilliste erzeugen
-		List<Integer> l3 = l2.subList(1, 3);
+		List<Integer> l3i = l2i.subList(1, 3);
 	
 		Collection<String> co = new LinkedList<String>();
 		co.add("Hallo"); co.add("Welt"); co.add("!");
 		print(co);
 		
-		
+		System.out.println(l2i == l3i);
+		l3i = l2i;
+		System.out.println(l2i == l3i);
 		
 
 	}

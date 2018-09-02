@@ -1,9 +1,10 @@
-package lists.sort;
+package sorting;
 
 import java.util.LinkedList;
 
 public class Bubblesorter<T extends Comparable<T>> {
 
+	//TODO test
 	public void sortAscending(T[] array) {
 		
 		for(int i = 0; i < array.length - 1; i++) {
@@ -32,6 +33,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}
 	}
 	
+	//TODO test
 	public void sortAscending(LinkedList<T> list) {
 		
 		for (int i = 0; i < list.size(); i++) {
@@ -53,5 +55,30 @@ public class Bubblesorter<T extends Comparable<T>> {
 				break;
 			}
 		}	
+	}
+	
+	public static void main(String[] args) {
+		
+		String[] array1 = new String[] {"abc", "jkl", "def", "pqi", "ghi", "mno"};
+		
+		
+		String[] array1a = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqi" };
+		for(int i = 0; i < array1.length; i++) {
+			System.out.print(array1[i] + " ");
+		}
+		System.out.println("");
+		
+		Bubblesorter<String> bubble1 = new Bubblesorter<String>();
+		bubble1.sortAscending(array1);
+		
+		for(int i = 0; i < array1.length; i++) {
+			System.out.print(array1[i] + " ");
+		}
+		System.out.println("");
+		for(int i = 0; i < array1a.length; i++) {
+			System.out.print(array1a[i] + " ");
+		}
+
+		
 	}
 }

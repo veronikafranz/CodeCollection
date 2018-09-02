@@ -1,9 +1,10 @@
-package lists.sort;
+package sorting;
 
 import java.util.LinkedList;
 
 public class Insertionsort<T extends Comparable<T>> {
 
+	//TODO test
 	public void sortAscending(T[] array) {
 		//case: array empty
 		if(array.length <= 0) {
@@ -24,6 +25,7 @@ public class Insertionsort<T extends Comparable<T>> {
 		}
 	}
 	
+	//TODO test
 	public void sortAscending(LinkedList<T> list) {
 		//case: list is empty
 		if(list.size() <= 0) {

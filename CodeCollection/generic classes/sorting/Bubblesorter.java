@@ -9,13 +9,29 @@ public class Bubblesorter<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sort(T[] array) {
+		//case: array == null
+		if(array == null) {
+			return;
+		}
+		//case: array contains 1 element
+		if(array.length == 1) {
+			return;
+		}
 		//default sortMode Ascending
 		sort(ASC, array);
 	}
 	
 	//TODO test
 	public void sort(String sortMode, T[] array) {
-		
+		//case: array == null
+		if(array == null) {
+			return;
+		}
+		//case: array contains 1 element
+		if(array.length == 1) {
+			return;
+		}
+		//sort
 		for(int i = 0; i < array.length - 1; i++) {
 			//assumption field is sorted = true
 			boolean sorted = true;
@@ -61,9 +77,18 @@ public class Bubblesorter<T extends Comparable<T>> {
 	}
 
 	
+	
 	//TODO test
 	public void sortAscending(T[] array) {
-		
+		//case: array == null
+		if(array == null) {
+			return;
+		}
+		//case: array contains 1 element
+		if(array.length == 1) {
+			return;
+		}
+		//sort
 		for(int i = 0; i < array.length - 1; i++) {
 			//assumption field is sorted = true
 			boolean sorted = true;
@@ -92,7 +117,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 
 	//TODO test
 	public void sortDescending(T[] array) {
-		
+		//case: array == null
+		if(array == null) {
+			return;
+		}
+		//case: array contains 1 element
+		if(array.length == 1) {
+			return;
+		}
+		//sort
 		for(int i = 0; i < array.length - 1; i++) {
 			//assumption field is sorted = true
 			boolean sorted = true;
@@ -118,10 +151,79 @@ public class Bubblesorter<T extends Comparable<T>> {
 			}
 		}
 	}
+
+	public void sort(LinkedList<T> list) {
+		//case: list == null
+		if(list == null) {
+			return;
+		}
+		//list contains 1 element
+		if(list.size() == 1) {
+			return;
+		}
+		//default sort: ascending
+		sort("ASC", list);
+	}
+	
+	//TODO test
+	public void sort(String sortMode, LinkedList<T> list) {
+		//case: list == null
+		if(list == null) {
+			return;
+		}
+		//list contains 1 element
+		if(list.size() == 1) {
+			return;
+		}
+		//sort
+		for (int i = 0; i < list.size(); i++) {
+			//assumption: list is sorted = true;
+			boolean sorted = true;
+			//parse list
+			for(int j = 0; j < list.size() - 1 - i; j++) {
+				//case: sortModeASC || null (default)
+				if(sortMode == ASC || sortMode == null) {
+					//if j is larger than j+1
+					if(list.get(j).compareTo(list.get(j+1)) > 0) {
+						//switch
+						T temp = list.get(j);
+						list.set(j, list.get(j+1));
+						list.set((j+1), temp);
+						//set sorted false as unsorted elements found
+						sorted = false;
+					}
+				} else if(sortMode == DESC) {
+				//case: sortMode == DESC
+					//if j is smaller than j+1
+					if(list.get(j).compareTo(list.get(j+1)) < 0) {
+						//switch
+						T temp = list.get(j);
+						list.set(j, list.get(j+1));
+						list.set((j+1), temp);
+						//set sorted false as unsorted elements found
+						sorted = false;
+					}
+				} else {
+					throw new IllegalArgumentException("Please choose a sort mode ASC for ascending or DESC for descending sorting.");
+				}
+			}
+			if(sorted) {
+				break;
+			}
+		}	
+	}
 	
 	//TODO test
 	public void sortAscending(LinkedList<T> list) {
-		
+		//case: list == null
+		if(list == null) {
+			return;
+		}
+		//list contains 1 element
+		if(list.size() == 1) {
+			return;
+		}
+		//sort descending
 		for (int i = 0; i < list.size(); i++) {
 			//assumption: list is sorted = true;
 			boolean sorted = true;
@@ -145,7 +247,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 
 	//TODO test
 	public void sortDescending(LinkedList<T> list) {
-		
+		//case: list == null
+		if(list == null) {
+			return;
+		}
+		//list contains 1 element
+		if(list.size() == 1) {
+			return;
+		}	
+		//sort
 		for (int i = 0; i < list.size(); i++) {
 			//assumption: list is sorted = true;
 			boolean sorted = true;

@@ -286,6 +286,43 @@ public class BubblesorterTest extends TestCase {
 				+ "failed.", true, array6[array6.length-1].equals(array6d[array6d.length-1]));
 	}
 	
+	public void testDefaultSortModeAscendingList() {
+		bubble1.sort(list1);
+		for(int i = 0; i < list1.size(); i++) {
+			assertEquals("Ascending sorting of String list" 
+					+ "failed.", true, list1.get(0).equals(list1s.get(i)));
+		}
+		bubble2.sortAscending(list5);
+		for(int i = 0; i < list5.size(); i++) {
+			assertEquals("Ascending sorting of Integer list" 
+					+ "failed.", true, list5.get(0).equals(list5s.get(i)));
+		}
+	}
+	
+	public void testSortModeList() {
+		bubble1.sort("ASC", list1);
+		for(int i = 0; i < list1.size(); i++) {
+			assertEquals("Ascending sorting of String list" 
+					+ "failed.", true, list1.get(0).equals(list1s.get(i)));
+		}
+		bubble2.sort("ASC", list5);
+		for(int i = 0; i < list5.size(); i++) {
+			assertEquals("Ascending sorting of Integer list" 
+					+ "failed.", true, list5.get(0).equals(list5s.get(i)));
+		}
+		bubble1.sort("DESC", list1);
+		for(int i = 0; i < list1.size(); i++) {
+			assertEquals("Ascending sorting of String list" 
+					+ "failed.", true, list1.get(0).equals(list1d.get(i)));
+		}
+		bubble2.sort("DESC", list5);
+		for(int i = 0; i < list5.size(); i++) {
+			assertEquals("Ascending sorting of Integer list" 
+					+ "failed.", true, list5.get(0).equals(list5d.get(i)));
+		}
+	}
+
+	
 	public void testSortAscendingLinkedListOfString() {
 		bubble1.sortAscending(list1);
 		for(int i = 0; i < list1.size(); i++) {
@@ -358,6 +395,4 @@ public class BubblesorterTest extends TestCase {
 					+ "failed.", true, list6.get(0).equals(list6d.get(i)));
 		}
 	}
-
-	
 }

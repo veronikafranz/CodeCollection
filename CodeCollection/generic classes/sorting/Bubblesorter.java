@@ -278,7 +278,36 @@ public class Bubblesorter<T extends Comparable<T>> {
 	}
 	
 	public static void main(String[] args) {
-		//Test area
+		String[] array = new String[] {"mno", "jkl", "def", "pqi", "ghi", "abc"};
+		LinkedList<String> list = new LinkedList<String>();
+		System.out.println("before ASC");
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+		for(int i = 0; i < array.length; i++) {
+			list.add(array[i]);
+		}
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(list.get(i) + " ");
+		}
+		Bubblesorter<String> bubble1 = new Bubblesorter<String>();
+		Bubblesorter<String> bubble2 = new Bubblesorter<String>();
+		bubble1.sort(ASC, array);
+		bubble2.sort(list);
+		System.out.println();
+		System.out.println("after ASC");
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(list.get(i) + " ");
+		}
+		System.out.println();
+		System.out.println(list.getFirst() + " " + list.getLast());
+		
 		
 	}
 }

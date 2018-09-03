@@ -3,7 +3,64 @@ package sorting;
 import java.util.LinkedList;
 
 public class Bubblesorter<T extends Comparable<T>> {
+	
+	public final static String ASC = "ASC";
+	public final static String DESC = "DESC";
+	
+	//TODO test
+	public void sort(T[] array) {
+		//default sortMode Ascending
+		sort(ASC, array);
+	}
+	
+	//TODO test
+	public void sort(String sortMode, T[] array) {
+		
+		for(int i = 0; i < array.length - 1; i++) {
+			//assumption field is sorted = true
+			boolean sorted = true;
+			//parse the field
+			//for each i round (j less i) 
+			//as the last indexes (j - i - 1) are considered to be sorted after each j-round
+			for(int j = 0; j < array.length - 1 - i; j++) {
+				//case: sortMode ASC
+				if(sortMode.equals(ASC) || sortMode == null) {
+					//compare j and j+1
+					//if j is larger that j+1
+					if(array[j].compareTo(array[j+1]) > 0) {
+						//switch
+						T temp = array[j];
+						array[j] = array[j+1];
+						array[j+1] = temp;
+						//assumption field is sorted = false,
+						//as unsorted values had been found
+						sorted = false;					
+					}
+				} else if(sortMode.equals(DESC)) {
+				//case: sortMode DESC
+					//compare j and j+1
+					//if j is larger that j+1
+					if(array[j].compareTo(array[j+1]) < 0) {
+						//switch
+						T temp = array[j];
+						array[j] = array[j+1];
+						array[j+1] = temp;
+						//assumption field is sorted = false,
+						//as unsorted values had been found
+						sorted = false;					
+					}
+				} else {
+					throw new IllegalArgumentException("Please choose a sort mode ASC for ascending or DESC for descending sorting.");
+				}				
+			}
+			if(sorted) {
+				//no changes need to be made
+				break;
+			}
+		}
+	}
 
+	
 	//TODO test
 	public void sortAscending(T[] array) {
 		
@@ -62,7 +119,6 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}
 	}
 	
-	
 	//TODO test
 	public void sortAscending(LinkedList<T> list) {
 		
@@ -112,29 +168,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	}
 	
 	public static void main(String[] args) {
-		
-		/*
-		String[] array1 = new String[] {"abc", "jkl", "def", "pqi", "ghi", "mno"};
-		String[] array4 = new String[] {"Pqj", "aac", "Aac", "pqj", "Aab", "aab", "Mnn", "mnn"};
-		
-		String[] array1a = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqi" };
-		
-		for(int i = 0; i < array4.length; i++) {
-			System.out.print(array4[i] + " ");
-		}
-		System.out.println("");
-		
-		Bubblesorter<String> bubble1 = new Bubblesorter<String>();
-		bubble1.sortAscending(array4);
-		
-		for(int i = 0; i < array4.length; i++) {
-			System.out.print(array4[i] + " ");
-		}
-		System.out.println("");
-		for(int i = 0; i < array1a.length; i++) {
-			System.out.print(array1a[i] + " ");
-		}*/
-
+		//Test area
 		
 	}
 }

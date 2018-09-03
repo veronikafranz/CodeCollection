@@ -113,6 +113,83 @@ public class BubblesorterTest extends TestCase {
 		}
 	}
 
+	public void testDefaultSortModeAscendingStringArray() {
+		
+		bubble1.sort(array1);
+		for(int i = 0; i < array1.length; i++) {
+			assertEquals("Default sort mode (ASC) sorting of String" 
+					+ "failed.", true, array1[i].equals(array1s[i]));
+		}
+		bubble1.sort(array2);
+		for(int i = 0; i < array2.length; i++) {
+			assertEquals("Default sort mode (ASC) sorting of String with duplicate " 
+					+ "Strings failed.", true, array2[i].equals(array2s[i]));
+		}
+		bubble1.sort(array3);
+		for(int i = 0; i < array3.length; i++) {
+			assertEquals("Default sort mode (ASC) sorting of String with differences in 2nd or 3rd letter" 
+					+ " failed.", true, array3[i].equals(array3s[i]));
+		}
+		bubble1.sort(array4);
+		for(int i = 0; i < array4.length; i++) {
+			assertEquals("Default sort mode (ASC) sorting of String with upper and lower case" 
+					+ " failed.", true, array4[i].equals(array4s[i]));
+		}
+	}
+
+	public void testDefaultSortModeAscendingIntegerArray() {
+		
+		bubble2.sort(array5);
+		for(int i = 0; i < array5.length; i++) {
+			assertEquals("Default sort mode (ascending) sorting of Integer" 
+					+ "failed.", true, array5[i].equals(array5s[i]));
+		}
+		bubble2.sort(array6);
+		for(int i = 0; i < array6.length; i++) {
+			assertEquals("Default sort mode (ascending) sorting of Integer with duplicate " 
+					+ "values failed.", true, array6[i].equals(array6s[i]));
+		}
+		//compare first and last elements of arrays
+		assertEquals("Default sort mode (ascending) sorting of Integer "
+				+ "failed.", true, array5[0].equals(array5s[0]));
+		assertEquals("Default sort mode (ascending) sorting of Integer with duplicate "
+				+ "failed.", true, array6[array6.length-1].equals(array6s[array6s.length-1]));
+		
+	}
+
+	public void testSortModeAscDesc() {
+		bubble1.sort("DESC", array1);
+		for(int i = 0; i < array1.length; i++) {
+			assertEquals("Descending sort mode sorting of String" 
+					+ "failed.", true, array1[i].equals(array1d[i]));
+		}
+		bubble1.sort("ASC", array2);
+		for(int i = 0; i < array2.length; i++) {
+			assertEquals("Ascending sort mode sorting of String" 
+					+ "failed.", true, array2[i].equals(array2s[i]));
+		}
+		bubble2.sort("DESC", array5);
+		for(int i = 0; i < array5.length; i++) {
+			assertEquals("Descending sort mode sorting of Integer" 
+					+ "failed.", true, array5[i].equals(array5d[i]));
+		}
+		bubble2.sort("ASC", array6);
+		for(int i = 0; i < array6.length; i++) {
+			assertEquals("Descending sort mode sorting of Integer" 
+					+ "failed.", true, array6[i].equals(array6s[i]));
+		}
+		/*bubble1.sort("ASC", list1);
+		for(int i = 0; i < list1.size(); i++) {
+			assertEquals("Sort mode ASC sorting of String list" 
+					+ "failed.", true, list1.get(0).equals(list1s.get(i)));
+		}
+		bubble1.sort("DESC", list2);
+		for(int i = 0; i < list2.size(); i++) {
+			assertEquals("DESC sort mode sorting of String list" 
+					+ "failed.", true, list2.get(0).equals(list2d.get(i)));
+		}*/
+	}
+	
 	public void testSortAscendingStringArray() {
 		
 		bubble1.sortAscending(array1);
@@ -170,7 +247,6 @@ public class BubblesorterTest extends TestCase {
 		assertEquals("Descending sorting of String"
 				+ " failed.", true, array1[array1.length-1].equals(array1d[array1d.length-1]));
 	}
-	
 	
 	public void testSortAscendingIntegerArray() {
 		

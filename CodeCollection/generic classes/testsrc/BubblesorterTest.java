@@ -135,6 +135,11 @@ public class BubblesorterTest extends TestCase {
 			assertEquals("Ascending sorting of String with upper and lower case" 
 					+ " failed.", true, array4[i].equals(array4s[i]));
 		}
+		//compare first and last elements of arrays
+		assertEquals("Ascending sorting of String with differences in 2nd or 3rd letter"
+				+ " failed.", true, array3[array3.length-1].equals(array3s[array3s.length - 1]));
+		assertEquals("Ascending sorting of String with upper and lower case" 
+				+ " failed.", true, array4[0].equals(array4s[0]));
 	}
 
 	public void testSortDescendingStringArray() {
@@ -159,6 +164,11 @@ public class BubblesorterTest extends TestCase {
 			assertEquals("Descending sorting of String with upper and lower case" 
 					+ " failed.", true, array4[i].equals(array4d[i]));
 		}
+		//compare first and last element of arrays
+		assertEquals("Descending sorting of String with duplicate Strings "
+				+ "failed.", true, array2[0].equals(array2d[0]));
+		assertEquals("Descending sorting of String"
+				+ " failed.", true, array1[array1.length-1].equals(array1d[array1d.length-1]));
 	}
 	
 	
@@ -174,6 +184,11 @@ public class BubblesorterTest extends TestCase {
 			assertEquals("Ascending sorting of Integer with duplicate " 
 					+ "values failed.", true, array6[i].equals(array6s[i]));
 		}
+		//compare first and last elements of arrays
+		assertEquals("Ascending sorting of Integer "
+				+ "failed.", true, array5[0].equals(array5s[0]));
+		assertEquals("Ascending sorting of Integer with duplicate "
+				+ "failed.", true, array6[array6.length-1].equals(array6s[array6s.length-1]));
 	}
 
 	public void testSortDescendingIntegerArray() {
@@ -188,6 +203,11 @@ public class BubblesorterTest extends TestCase {
 			assertEquals("Descending sorting of Integer with duplicate " 
 					+ "values failed.", true, array6[i].equals(array6d[i]));
 		}
+		//compare first and last elements of array
+		assertEquals("Descending sorting of Integer"
+				+ " failed.", true, array5[0].equals(array5d[0]));
+		assertEquals("Descending sorting of Integer "
+				+ "failed.", true, array6[array6.length-1].equals(array6d[array6d.length-1]));
 	}
 	
 	public void testSortAscendingLinkedListOfString() {

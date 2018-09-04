@@ -9,11 +9,11 @@ public class Insertionsort<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sort(T[] array) {
-		//case: array empty
-		if(array.length <= 0) {
+		//case: array is empty
+		if(array == null || array.length <= 0) {
 			return;
 		}
-		//case: array contains 1 element
+		//case: array contains only 1 element
 		if(array.length == 1) {
 			return;
 		}
@@ -23,11 +23,11 @@ public class Insertionsort<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sort(String sortMode, T[] array) {
-		//case: array empty
-		if(array.length <= 0) {
+		//case: array is empty
+		if(array == null || array.length <= 0) {
 			return;
 		}
-		//case: array contains 1 element
+		//case: array contains only 1 element
 		if(array.length == 1) {
 			return;
 		}
@@ -64,8 +64,12 @@ public class Insertionsort<T extends Comparable<T>> {
 
 	//TODO test
 	public void sortAscending(T[] array) {
-		//case: array empty
-		if(array.length <= 0) {
+		//case: array is empty
+		if(array == null || array.length <= 0) {
+			return;
+		}
+		//case: array contains only 1 element
+		if(array.length == 1) {
 			return;
 		}
 		for(int i = 1; i < array.length; i++) {
@@ -85,8 +89,12 @@ public class Insertionsort<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sortDescending(T[] array) {
-		//case: array empty
-		if(array.length <= 0) {
+		//case: array is empty
+		if(array == null || array.length <= 0) {
+			return;
+		}
+		//case: array contains only 1 element
+		if(array.length == 1) {
 			return;
 		}
 		for(int i = 1; i < array.length; i++) {
@@ -187,7 +195,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	//TODO test
 	public void sortDescending(LinkedList<T> list) {
 		//case: list is empty
-		if(list.size() <= 0) {
+		if(list.size() <= 0 || list == null) {
 			return;
 		}
 		//sort

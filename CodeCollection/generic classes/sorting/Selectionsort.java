@@ -65,7 +65,15 @@ public class Selectionsort<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sortAscending(T[] array) {
-
+		//case: array is empty
+		if(array == null || array.length <= 0) {
+			return;
+		}
+		//case: array contains only 1 element
+		if(array.length == 1) {
+			return;
+		}
+		//sort
 		for(int i = 0; i < array.length - 1; i++) {
 			//position max entry
 			int indexMax = 0;
@@ -88,7 +96,15 @@ public class Selectionsort<T extends Comparable<T>> {
 	
 	//TODO test
 	public void sortDescending(T[] array) {
-
+		//case: array is empty
+		if(array == null || array.length <= 0) {
+			return;
+		}
+		//case: array contains only 1 element
+		if(array.length == 1) {
+			return;
+		}
+		//sort
 		for(int i = 0; i < array.length - 1; i++) {
 			//position min entry
 			int indexMin = 0;

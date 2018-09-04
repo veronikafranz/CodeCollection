@@ -24,7 +24,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	//TODO test
 	public void sort(String sortMode, T[] array) {
 		//case: array == null
-		if(array == null) {
+		if(array == null || array.length <= 0) {
 			return;
 		}
 		//case: array contains 1 element

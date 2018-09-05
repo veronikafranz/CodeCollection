@@ -2,12 +2,31 @@ package sorting;
 
 import java.util.LinkedList;
 
+/**
+ * A generic class for sorting LinkedList and array entries 
+ * of different data types ascending or descending.
+ * 
+ * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+ * followed by lower case letters a-z.
+ * 
+ * @author veron
+ *
+ * @param <T> data type
+ */
 public class Bubblesorter<T extends Comparable<T>> {
 	
 	public final static String ASC = "ASC";
 	public final static String DESC = "DESC";
 	
-	//TODO test
+	
+	/**
+	 * Sorts a specified array ascending.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param array
+	 */
 	public void sort(T[] array) {
 		//case: array == null
 		if(array == null) {
@@ -21,7 +40,18 @@ public class Bubblesorter<T extends Comparable<T>> {
 		sort(ASC, array);
 	}
 	
-	//TODO test
+	
+	/**
+	 * Sorts a specified array according to specified sortMode,
+	 * whereas "ASC" needs to be chosen for ascending and
+	 * "DESC" for descending sorting.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param sortMode
+	 * @param array
+	 */
 	public void sort(String sortMode, T[] array) {
 		//case: array == null
 		if(array == null || array.length <= 0) {
@@ -78,7 +108,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 
 	
 	
-	//TODO test
+	
+	/**
+	 * Sorts a specified array ascending.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param array
+	 */
 	public void sortAscending(T[] array) {
 		//case: array == null
 		if(array == null) {
@@ -115,7 +153,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}
 	}
 
-	//TODO test
+	
+	/**
+	 * Sorts a specified array descending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param array
+	 */
 	public void sortDescending(T[] array) {
 		//case: array == null
 		if(array == null) {
@@ -152,6 +198,14 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}
 	}
 
+	/**
+	 * Sorts a specified list ascending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sort(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
@@ -165,7 +219,18 @@ public class Bubblesorter<T extends Comparable<T>> {
 		sort("ASC", list);
 	}
 	
-	//TODO test
+	
+	/**
+	 * Sorts a specified list according to chosen sort Mode,
+	 * whereas "ASC" is used for ascending and
+	 * "DESC" for descending sorting.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param sortMode
+	 * @param list
+	 */
 	public void sort(String sortMode, LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
@@ -213,7 +278,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}	
 	}
 	
-	//TODO test
+	
+	/**
+	 * Sorts specified list ascending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sortAscending(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
@@ -245,7 +318,15 @@ public class Bubblesorter<T extends Comparable<T>> {
 		}	
 	}
 
-	//TODO test
+	
+	/**
+	 * Sorts a specified list descending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sortDescending(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
@@ -275,39 +356,5 @@ public class Bubblesorter<T extends Comparable<T>> {
 				break;
 			}
 		}	
-	}
-	
-	public static void main(String[] args) {
-		String[] array = new String[] {"mno", "jkl", "def", "pqi", "ghi", "abc"};
-		LinkedList<String> list = new LinkedList<String>();
-		System.out.println("before ASC");
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-		for(int i = 0; i < array.length; i++) {
-			list.add(array[i]);
-		}
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(list.get(i) + " ");
-		}
-		Bubblesorter<String> bubble1 = new Bubblesorter<String>();
-		Bubblesorter<String> bubble2 = new Bubblesorter<String>();
-		bubble1.sort(ASC, array);
-		bubble2.sort(list);
-		System.out.println();
-		System.out.println("after ASC");
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-		
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(list.get(i) + " ");
-		}
-		System.out.println();
-		System.out.println(list.getFirst() + " " + list.getLast());
-		
-		
 	}
 }

@@ -2,11 +2,31 @@ package sorting;
 
 import java.util.LinkedList;
 
+
+/**
+ * A generic class for sorting LinkedList and array entries 
+ * of different data types ascending or descending.
+ * 
+ * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+ * followed by lower case letters a-z.
+ * 
+ * @author veron
+ *
+ * @param <T> data type
+ */
 public class Selectionsort<T extends Comparable<T>> {
 	
 	final static String ASC = "ASC";
 	final static String DESC = "DESC";
 	
+	/**
+	 * Sorts a specified array ascending.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param array
+	 */
 	public void sort(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
@@ -20,6 +40,17 @@ public class Selectionsort<T extends Comparable<T>> {
 		sort("ASC", array);		
 	}
 	
+	/**
+	 * Sorts a specified array according to specified sortMode,
+	 * whereas "ASC" needs to be chosen for ascending and
+	 * "DESC" for descending sorting.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param sortMode
+	 * @param array
+	 */
 	public void sort(String sortMode, T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
@@ -63,7 +94,14 @@ public class Selectionsort<T extends Comparable<T>> {
 	}
 
 	
-	//TODO test
+	/**
+	 * Sorts a specified array ascending.
+	 * 
+	 * Sorting is case-sensitive. First, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z.
+	 * 
+	 * @param array
+	 */
 	public void sortAscending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
@@ -94,7 +132,14 @@ public class Selectionsort<T extends Comparable<T>> {
 		}
 	}
 	
-	//TODO test
+	/**
+	 * Sorts a specified array descending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param array
+	 */
 	public void sortDescending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
@@ -125,7 +170,14 @@ public class Selectionsort<T extends Comparable<T>> {
 		}
 	}
 	
-	//TODO test
+	/**
+	 * Sorts a specified list ascending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sort(LinkedList<T> list) {
 		//case: list empty
 		if(list.size() == 0 || list == null) {
@@ -139,7 +191,17 @@ public class Selectionsort<T extends Comparable<T>> {
 		sort("ASC", list);
 	}
 	
-	//TODO test
+	/**
+	 * Sorts a specified list according to chosen sort Mode,
+	 * whereas "ASC" is used for ascending and
+	 * "DESC" for descending sorting.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param sortMode
+	 * @param list
+	 */
 	public void sort(String sortMode, LinkedList<T> list) {
 		//case: list empty
 		if(list.size() == 0 || list == null) {
@@ -184,7 +246,14 @@ public class Selectionsort<T extends Comparable<T>> {
 	}
 
 
-	//TODO test
+	/**
+	 * Sorts specified list ascending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sortAscending(LinkedList<T> list) {
 		
 		for(int i = 0; i < list.size() - 1; i++) {
@@ -209,6 +278,14 @@ public class Selectionsort<T extends Comparable<T>> {
 		}
 	}
 	
+	/**
+	 * Sorts a specified list descending.
+	 * 
+	 * Sorting is case-sensitive. For e.g. ascending this means, upper case is sorted A-Z, 
+	 * followed by lower case letters a-z, for descending it's reverse.
+	 * 
+	 * @param list
+	 */
 	public void sortDescending(LinkedList<T> list) {
 		
 		for(int i = 0; i < list.size() - 1; i++) {

@@ -99,17 +99,16 @@ public class Search<T extends Comparable<T>> {
 	}
 	
 	//TODO test
-	//TODO rename in English
-	public boolean istTeilfolge(T[] array, T[] searchedArray) {
+	public boolean isSubsequence(T[] array, T[] sequence) {
 		//it's not necessary to search till the end because
 		//complete searchedArray can not be found
-		for(int i = 0; i < array.length - searchedArray.length + 1; i++) {
-			for(int j = 0; i < searchedArray.length; j++) {
-				if(array[i + j] != searchedArray[j]) {
+		for(int i = 0; i < array.length - sequence.length + 1; i++) {
+			for(int j = 0; i < sequence.length; j++) {
+				if(array[i + j] != sequence[j]) {
 					//value in array at i + j does not match j value in searchedArray
 					//continue i + 1
 					break;
-				} else if(j == searchedArray.length - 1) {
+				} else if(j == sequence.length - 1) {
 					//searched array found
 					return true;
 				}
@@ -120,66 +119,63 @@ public class Search<T extends Comparable<T>> {
 	}
 	
 	//TODO test
-	//TODO rename in English
-	public boolean istTeilfolge(LinkedList<T> list, LinkedList<T> searchedList) {
+	public boolean isSubsequence(LinkedList<T> list, LinkedList<T> sequence) {
 		//it's not necessary to search till the end because
-		//complete searchedList can not be found
-		for(int i = 0; i < list.size() - searchedList.size() + 1; i++) {
-			for(int j = 0; i < searchedList.size(); j++) {
-				if(!(list.get(i + j).equals(searchedList.get(j)))) {
-					//value in list at i + j does not match j value in searchedList
+		//complete sequence list can not be found
+		for(int i = 0; i < list.size() - sequence.size() + 1; i++) {
+			for(int j = 0; i < sequence.size(); j++) {
+				if(!(list.get(i + j).equals(sequence.get(j)))) {
+					//value in list at i + j does not match j value in sequence
 					//continue i + 1
 					break;
-				} else if(j == searchedList.size() - 1) {
-					//searched array found
+				} else if(j == sequence.size() - 1) {
+					//sequence found
 					return true;
 				}
 			}
 		}
-		//searched list could not completely be found
+		//sequence list could not completely be found
 		return false;
 	}
 	
 	//TODO test
-	//TODO rename in English
-	public boolean istTeilfolge(LinkedList<T> list, T[] searchedArray) {
+	public boolean isSubsequence(LinkedList<T> list, T[] sequence) {
 		//it's not necessary to search till the end because
-		//complete searchedArray can not be found
-		for(int i = 0; i < list.size() - searchedArray.length + 1; i++) {
-			for(int j = 0; i < searchedArray.length; j++) {
-				if(!(list.get(i + j).equals(searchedArray[j]))) {
-					//value in list at i + j does not match j value in searchedArray
+		//complete sequence can not be found
+		for(int i = 0; i < list.size() - sequence.length + 1; i++) {
+			for(int j = 0; i < sequence.length; j++) {
+				if(!(list.get(i + j).equals(sequence[j]))) {
+					//value in list at i + j does not match j value in sequence
 					//continue i + 1
 					break;
-				} else if(j == searchedArray.length - 1) {
-					//searched array found
+				} else if(j == sequence.length - 1) {
+					//sequence found
 					return true;
 				}
 			}
 		}
-		//searched list could not completely be found
+		//sequence could not completely be found
 		return false;
 	}
 	
 	
 	//TODO test
-	//TODO rename in English
-	public boolean istTeilfolge(T[] array, LinkedList<T> searchedList) {
+	public boolean isSubsequence(T[] array, LinkedList<T> sequence) {
 		//it's not necessary to search till the end because
-		//complete searchedList can not be found
-		for(int i = 0; i < array.length - searchedList.size() + 1; i++) {
-			for(int j = 0; i < searchedList.size(); j++) {
-				if(!(array[i + j].equals(searchedList.get(j)))) {
-					//value in array at i + j does not match j value in searchedList
+		//complete sequence can not be found
+		for(int i = 0; i < array.length - sequence.size() + 1; i++) {
+			for(int j = 0; i < sequence.size(); j++) {
+				if(!(array[i + j].equals(sequence.get(j)))) {
+					//value in array at i + j does not match j value in sequence
 					//continue i + 1
 					break;
-				} else if(j == searchedList.size() - 1) {
-					//searched list found
+				} else if(j == sequence.size() - 1) {
+					//sequence found
 					return true;
 				}
 			}
 		}
-		//searched list could not completely be found
+		//sequence could not completely be found
 		return false;
 	}
 	

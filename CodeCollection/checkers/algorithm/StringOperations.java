@@ -3,6 +3,7 @@ package algorithm;
 public class StringOperations {
 	
 	//TODO test
+	//look for word in array
 	public int stringMatching(char[] array, String word) {
 		
 		//loop through array

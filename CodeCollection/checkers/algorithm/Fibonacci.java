@@ -3,7 +3,7 @@ package algorithm;
 public class Fibonacci {
 
 	//TODO: test
-	long fibRekursiv(int n) {
+	public long fibRekursiv(int n) {
 		if(n < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -16,7 +16,7 @@ public class Fibonacci {
 	}
 	
 	//TODO test
-	long fibIterativ(int n) {
+	public long fibIterativ(int n) {
 		//negative n
 		if(n < 0) {
 			throw new IllegalArgumentException();

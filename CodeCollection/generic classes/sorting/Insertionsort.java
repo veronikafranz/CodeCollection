@@ -30,7 +30,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sort(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -54,7 +54,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sort(String sortMode, T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -102,7 +102,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sortAscending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -134,7 +134,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sortDescending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -166,7 +166,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sort(LinkedList<T> list) {
 		//case: list is empty
 		if(list == null || list.size() <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: list contains 1 element
 		if(list.size() == 1) {
@@ -190,7 +190,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sort(String sortMode, LinkedList<T> list) {
 		//case: list is empty
 		if(list.size() <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: list contains 1 element
 		if(list.size() == 1) {
@@ -239,8 +239,8 @@ public class Insertionsort<T extends Comparable<T>> {
 	 */
 	public void sortAscending(LinkedList<T> list) {
 		//case: list is empty
-		if(list.size() <= 0) {
-			return;
+		if(list == null || list.size() <= 0) {
+			throw new NullPointerException();
 		}
 		//sort
 		for(int i = 1; i < list.size(); i++) {
@@ -270,7 +270,7 @@ public class Insertionsort<T extends Comparable<T>> {
 	public void sortDescending(LinkedList<T> list) {
 		//case: list is empty
 		if(list.size() <= 0 || list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//sort
 		for(int i = 1; i < list.size(); i++) {

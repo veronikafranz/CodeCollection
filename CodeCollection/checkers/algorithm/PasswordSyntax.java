@@ -19,8 +19,13 @@ public class PasswordSyntax {
 	 * 
 	 * @param password
 	 * @return true, if password is valid, else false
+	 * 
+	 * @throws NullPointerException if password does not contain characters
 	 */
 	public boolean checkPassword(char[] password) {
+		if(password == null || password.length == 0) {
+			throw new NullPointerException("Please insert a password.");
+		}
 		if(password == null) {
 			return false;
 		}

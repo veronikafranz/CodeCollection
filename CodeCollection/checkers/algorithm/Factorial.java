@@ -1,11 +1,17 @@
 package algorithm;
 
+
 public class Factorial {
 
-	//0,1,2,3,4,5,6,7
-	//1,1,2,6,24,120,720,5040
-	
-	//TODO test
+
+	/**
+	 * Calculates the factorial n! iteratively.
+	 * 
+	 * @throws IllegalArgumentException, if n < 0	 * 
+	 * @param n
+	 * @return factorial n!
+	 * 
+	 */
 	public long factorialIterativ(int n) {
 		//case: n is negative
 		if(n < 0) {
@@ -18,7 +24,14 @@ public class Factorial {
 		return factorial;
 	}
 	
-	//TODO test
+	/**
+	 * Calculates the factorial n! recursively.
+	 * 
+	 * @throws IllegalArgumentException, if n < 0	 * 
+	 * @param n
+	 * @return factorial n!
+	 * 
+	 */
 	public long factorialRecursive(int n) {
 		//case: n is negative
 		if(n < 0) {

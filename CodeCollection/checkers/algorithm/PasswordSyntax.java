@@ -26,10 +26,7 @@ public class PasswordSyntax {
 		if(password == null || password.length == 0) {
 			throw new NullPointerException("Please insert a password.");
 		}
-		if(password == null) {
-			return false;
-		}
-		
+				
 		return checkLength(password)
 				&& checkDigits(password)
 				&& checkUpperCase(password)

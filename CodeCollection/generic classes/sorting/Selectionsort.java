@@ -30,7 +30,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sort(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -54,7 +54,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sort(String sortMode, T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -105,7 +105,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sortAscending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -143,7 +143,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sortDescending(T[] array) {
 		//case: array is empty
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains only 1 element
 		if(array.length == 1) {
@@ -181,7 +181,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sort(LinkedList<T> list) {
 		//case: list empty
 		if(list.size() == 0 || list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: list contains 1 element
 		if(list.size() == 1) {
@@ -205,7 +205,7 @@ public class Selectionsort<T extends Comparable<T>> {
 	public void sort(String sortMode, LinkedList<T> list) {
 		//case: list empty
 		if(list.size() == 0 || list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: list contains 1 element
 		if(list.size() == 1) {
@@ -255,7 +255,11 @@ public class Selectionsort<T extends Comparable<T>> {
 	 * @param list
 	 */
 	public void sortAscending(LinkedList<T> list) {
-		
+		//case: list empty
+		if(list.size() == 0 || list == null) {
+			throw new NullPointerException();
+		}
+		//sort
 		for(int i = 0; i < list.size() - 1; i++) {
 			//position max entry
 			int indexMax = 0;
@@ -287,7 +291,11 @@ public class Selectionsort<T extends Comparable<T>> {
 	 * @param list
 	 */
 	public void sortDescending(LinkedList<T> list) {
-		
+		//case: list empty
+		if(list.size() == 0 || list == null) {
+			throw new NullPointerException();
+		}
+		//sort
 		for(int i = 0; i < list.size() - 1; i++) {
 			//position min entry
 			int indexMin = 0;

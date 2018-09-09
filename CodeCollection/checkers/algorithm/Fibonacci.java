@@ -2,7 +2,14 @@ package algorithm;
 
 public class Fibonacci {
 
-	//TODO: test
+	/**
+	 * Calculates the Fibonacci number of n recursively.
+	 * 
+	 * @throws IllegalArgumentException, if n < 0
+	 * @param n
+	 * @return Fibonacci number of n
+	 * 
+	 */
 	public long fibRekursiv(int n) {
 		if(n < 0) {
 			throw new IllegalArgumentException();
@@ -15,7 +22,14 @@ public class Fibonacci {
 		return fibRekursiv(n - 1) + fibRekursiv(n - 2);
 	}
 	
-	//TODO test
+	/**
+	 * Calculates the Fibonacci number of n iteratively.
+	 * 
+	 * @throws IllegalArgumentException, if n < 0
+	 * @param n
+	 * @return Fibonacci number of n
+	 * 
+	 */
 	public long fibIterativ(int n) {
 		//negative n
 		if(n < 0) {

@@ -19,7 +19,33 @@ public class FactorialTest extends TestCase {
 		assertEquals("Factoral iterativ with n = 2 failed.", 2, fa.factorialIterativ(2));
 		assertEquals("Factorial iterativ with n = 7 failed.", 5040, fa.factorialIterativ(7));
 	}
+	
+	public void testFactorialIterativExc() {
+		boolean passed = false;
+		try
+		{
+		    fa.factorialIterativ(-1);
+		}
+		catch (IllegalArgumentException e)
+		{
+		    passed = true;
+		}
+		assertTrue("The exception was not thrown as expected", passed);
+	}
 
+	public void testFactorialRecursiveExc() {
+		boolean passed = false;
+		try
+		{
+		    fa.factorialRecursive(-1);
+		}
+		catch (IllegalArgumentException e)
+		{
+		    passed = true;
+		}
+		assertTrue("The exception was not thrown as expected", passed);
+	}
+	
 	public void testFactorialRecursive() {
 		assertEquals("Factorial recursive with n = 0 failed.", 1, fa.factorialRecursive(0));
 		assertEquals("Factorial recursive with n = 1 failed.", 1, fa.factorialRecursive(1));

@@ -35,8 +35,8 @@ public class PasswordSyntax {
 	}
 	
 	public boolean checkPassword(String password) {
-		if(password == null) {
-			return false;
+		if(password == null || password.length() == 0) {
+			throw new NullPointerException("Please insert a password.");
 		}
 		
 		return checkDigits(password)
@@ -135,6 +135,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkLength(char[] password) {
+		if(password == null || password.length == 0) {
+			throw new NullPointerException("Please insert a password.");
+		}
 		//check length between 8 and 16
 		if(password.length >= 8 && password.length < 17) {
 			return true;
@@ -143,6 +146,9 @@ public class PasswordSyntax {
 	}
 	
 	private boolean checkLength(String password) {
+		if(password == null || password.length() == 0) {
+			throw new NullPointerException("Please insert a password.");
+		}
 		//check length between 8 and 16
 		if(password.length() >= 8 && password.length() < 17) {
 			return true;

@@ -18,7 +18,25 @@ public class FibonacciTest extends TestCase {
 		assertEquals("Fibonacci recursive with n = 8 failed.", 21, fib.fibRekursiv(8));
 		assertEquals("Fibonacci recursive with n = 5 failed.", 5, fib.fibRekursiv(5));
 	}
+	
+	public void testExceptionRecursive() {
+		try {
+			  fib.fibRekursiv(-1);
+			  fail("Expected IllegalArgumentException not thrown.");
+			} catch (IllegalArgumentException e) {
+			  
+			}
+	}
 
+	public void testExceptionIterative() {
+		try {
+			  fib.fibIterativ(-1);
+			  fail("Expected IllegalArgumentException not thrown.");
+			} catch (IllegalArgumentException e) {
+			  
+			}
+	}
+	
 	public void testFibIterativ() {
 		assertEquals("Fibonacci iterative with n = 0 failed.", 0, fib.fibIterativ(0));
 		assertEquals("Fibonacci iterative with n = 1 failed.", 1, fib.fibIterativ(1));

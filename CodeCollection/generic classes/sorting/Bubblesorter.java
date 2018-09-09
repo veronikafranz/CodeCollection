@@ -29,8 +29,8 @@ public class Bubblesorter<T extends Comparable<T>> {
 	 */
 	public void sort(T[] array) {
 		//case: array == null
-		if(array == null) {
-			return;
+		if(array == null || array.length == 0) {
+			throw new NullPointerException();
 		}
 		//case: array contains 1 element
 		if(array.length == 1) {
@@ -55,7 +55,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public void sort(String sortMode, T[] array) {
 		//case: array == null
 		if(array == null || array.length <= 0) {
-			return;
+			throw new NullPointerException();
 		}
 		//case: array contains 1 element
 		if(array.length == 1) {
@@ -119,8 +119,8 @@ public class Bubblesorter<T extends Comparable<T>> {
 	 */
 	public void sortAscending(T[] array) {
 		//case: array == null
-		if(array == null) {
-			return;
+		if(array == null || array.length == 0) {
+			throw new NullPointerException();
 		}
 		//case: array contains 1 element
 		if(array.length == 1) {
@@ -164,8 +164,8 @@ public class Bubblesorter<T extends Comparable<T>> {
 	 */
 	public void sortDescending(T[] array) {
 		//case: array == null
-		if(array == null) {
-			return;
+		if(array == null || array.length == 0) {
+			throw new NullPointerException();
 		}
 		//case: array contains 1 element
 		if(array.length == 1) {
@@ -209,7 +209,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public void sort(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//list contains 1 element
 		if(list.size() == 1) {
@@ -234,7 +234,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public void sort(String sortMode, LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//list contains 1 element
 		if(list.size() == 1) {
@@ -290,7 +290,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public void sortAscending(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//list contains 1 element
 		if(list.size() == 1) {
@@ -330,7 +330,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 	public void sortDescending(LinkedList<T> list) {
 		//case: list == null
 		if(list == null) {
-			return;
+			throw new NullPointerException();
 		}
 		//list contains 1 element
 		if(list.size() == 1) {

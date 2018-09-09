@@ -2,8 +2,18 @@ package algorithm;
 
 public class StringOperations {
 	
-	//TODO test
-	//look for word in array
+	
+	
+	/**
+	 * Methods, which is searching whether a specified word can be found in a specified array.
+	 * 
+	 * @param array
+	 * @param word
+	 * @return index of the found word's start, else
+	 * -1, if word does not match array characters
+	 * 
+	 * @throws NullPointerException if array or word is empty
+	 */
 	public int stringMatching(char[] array, String word) {
 		//case: array equals null
 		if(array == null || array.length == 0) {

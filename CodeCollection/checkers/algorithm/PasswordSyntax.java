@@ -25,11 +25,11 @@ public class PasswordSyntax {
 			return false;
 		}
 		
-		return checkDigits(password)
+		return checkLength(password)
+				&& checkDigits(password)
 				&& checkUpperCase(password)
 				&& checkLowerCase(password)
-				&& !containsSpace(password)
-				&& checkLength(password);
+				&& !containsSpace(password);
 	}
 	
 	public boolean checkPassword(String password) {

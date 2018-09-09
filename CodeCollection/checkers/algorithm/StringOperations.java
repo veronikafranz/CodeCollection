@@ -5,7 +5,18 @@ public class StringOperations {
 	//TODO test
 	//look for word in array
 	public int stringMatching(char[] array, String word) {
-		
+		//case: array equals null
+		if(array == null || array.length == 0) {
+			throw new NullPointerException("Array is empty.");
+		}
+		//case: word equals null
+		if(word == null) {
+			throw new NullPointerException("The given word does not contain any characters.");
+		}
+		//case: word has more characters than array
+		if(array.length < word.length()) {
+			return -1;
+		}
 		//loop through array
 		//until array length minus length of searched word, 
 		//because word can not be found, when number of letters to go through is not enough

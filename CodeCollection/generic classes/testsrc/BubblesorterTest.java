@@ -318,7 +318,7 @@ public class BubblesorterTest extends TestCase {
 		}
 		sort1.sort("DESC", list1);
 		for(int i = 0; i < list1.size(); i++) {
-			assertEquals("Ascending sorting of String list" 
+			assertEquals("Descending sorting of String list" 
 					+ "failed.", true, list1.get(0).equals(list1d.get(i)));
 		}
 		sort2.sort("DESC", list5);
@@ -417,33 +417,6 @@ public class BubblesorterTest extends TestCase {
 				+ "failed.", true, listEmpty1.equals(listEmpty1s));
 		sort2.sortAscending(listEmpty2);
 		assertEquals("Descending sorting of empty Integer list "
-				+ "failed.", true, listEmpty2.equals(listEmpty2s));
-	}
-	
-	public void testEmptyListsSortModeASCdefault() {
-		sort1.sort(listEmpty1);
-		assertEquals("Ascending sorting of empty String list "
-				+ "failed.", true, listEmpty1.equals(listEmpty1s));
-		sort2.sort(listEmpty2);
-		assertEquals("Ascending sorting of empty Integer list "
-				+ "failed.", true, listEmpty2.equals(listEmpty2s));
-	}
-	
-	public void testEmptyListsSortModeASC() {
-		sort1.sort("ASC", listEmpty1);
-		assertEquals("Ascending sorting of empty String list "
-				+ "failed.", true, listEmpty1.equals(listEmpty1s));
-		sort2.sort("ASC", listEmpty2);
-		assertEquals("Ascending sorting of empty Integer list "
-				+ "failed.", true, listEmpty2.equals(listEmpty2s));
-	}
-	
-	public void testEmptyListsSortModeDESC() {
-		sort1.sort("DESC", listEmpty1);
-		assertEquals("Ascending sorting of empty String list "
-				+ "failed.", true, listEmpty1.equals(listEmpty1s));
-		sort2.sort("DESC", listEmpty2);
-		assertEquals("Ascending sorting of empty Integer list "
 				+ "failed.", true, listEmpty2.equals(listEmpty2s));
 	}
 	
@@ -671,5 +644,56 @@ public class BubblesorterTest extends TestCase {
 			passed = true;
 		}
 		assertEquals("Ascending sort for sorting int List with null reference failed.", true, passed);		
+	}
+	
+	//Test IllegalArgumentException
+	public void testWrongSortModeIntegerList() {
+		boolean passed = false;
+		try {
+			sort2.sort("abc", list5);
+		} catch (IllegalArgumentException e) {
+			passed = true;
+		}
+		assertEquals("Sorting Integer List with wrong sort mode failed.", true, passed);		
+	}
+	
+	public void testWrongSortModeStringList() {
+		boolean passed = false;
+		try {
+			sort1.sort(" ", list3);
+		} catch (IllegalArgumentException e) {
+			passed = true;
+		}
+		assertEquals("Sorting String List with wrong sort mode failed.", true, passed);		
+	}
+	
+	public void testWrongSortModeIntegerArray() {
+		boolean passed = false;
+		try {
+			sort2.sort("abc", array5);
+		} catch (IllegalArgumentException e) {
+			passed = true;
+		}
+		assertEquals("Sorting Integer array with wrong sort mode failed.", true, passed);		
+	}
+	
+	public void testWrongSortModeIntegerArrayNull() {
+		boolean passed = false;
+		try {
+			sort2.sort(null, array5);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Sorting Integer array with wrong sort mode failed.", true, passed);		
+	}
+	
+	public void testWrongSortModeStringArray() {
+		boolean passed = false;
+		try {
+			sort1.sort(" ", array3);
+		} catch (IllegalArgumentException e) {
+			passed = true;
+		}
+		assertEquals("Sorting String array with wrong sort mode failed.", true, passed);		
 	}
 }

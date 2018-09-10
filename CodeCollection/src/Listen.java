@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.lang.Comparable;
 
+@SuppressWarnings("unused")
 public class Listen {
 
 	public static void print(Collection<String> c) {

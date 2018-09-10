@@ -54,8 +54,13 @@ public class Bubblesorter<T extends Comparable<T>> {
 	 */
 	public void sort(String sortMode, T[] array) {
 		//case: array == null
-		if(array == null || array.length <= 0) {
+		if(array == null || array.length <= 0 || sortMode == null) {
 			throw new NullPointerException();
+		}
+		//case: sortMode wrong
+		if((!(sortMode.equals(ASC))) 
+				&& (!(sortMode.equals(DESC)))) {
+			throw new IllegalArgumentException();
 		}
 		//case: array contains 1 element
 		if(array.length == 1) {
@@ -70,7 +75,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 			//as the last indexes (j - i - 1) are considered to be sorted after each j-round
 			for(int j = 0; j < array.length - 1 - i; j++) {
 				//case: sortMode ASC
-				if(sortMode.equals(ASC) || sortMode == null) {
+				if(sortMode.equals(ASC)) {
 					//compare j and j+1
 					//if j is larger that j+1
 					if(array[j].compareTo(array[j+1]) > 0) {
@@ -236,6 +241,11 @@ public class Bubblesorter<T extends Comparable<T>> {
 		if(list == null) {
 			throw new NullPointerException();
 		}
+		//case sort mode wrong
+		if((!(sortMode.equals(ASC))) 
+				&& (!(sortMode.equals(DESC)))) {
+			throw new IllegalArgumentException();
+		}
 		//list contains 1 element
 		if(list.size() == 1) {
 			return;
@@ -247,7 +257,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 			//parse list
 			for(int j = 0; j < list.size() - 1 - i; j++) {
 				//case: sortModeASC || null (default)
-				if(sortMode == ASC || sortMode == null) {
+				if(sortMode.equals(ASC)) {
 					//if j is larger than j+1
 					if(list.get(j).compareTo(list.get(j+1)) > 0) {
 						//switch
@@ -257,7 +267,7 @@ public class Bubblesorter<T extends Comparable<T>> {
 						//set sorted false as unsorted elements found
 						sorted = false;
 					}
-				} else if(sortMode == DESC) {
+				} else if(sortMode.equals(DESC)) {
 				//case: sortMode == DESC
 					//if j is smaller than j+1
 					if(list.get(j).compareTo(list.get(j+1)) < 0) {
@@ -268,8 +278,6 @@ public class Bubblesorter<T extends Comparable<T>> {
 						//set sorted false as unsorted elements found
 						sorted = false;
 					}
-				} else {
-					throw new IllegalArgumentException("Please choose a sort mode ASC for ascending or DESC for descending sorting.");
 				}
 			}
 			if(sorted) {

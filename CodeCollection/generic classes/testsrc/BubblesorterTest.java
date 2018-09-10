@@ -152,7 +152,7 @@ public class BubblesorterTest extends TestCase {
 					+ " failed.", true, array4[i].equals(array4s[i]));
 		}
 	}
-
+	
 	public void testDefaultSortModeAscendingIntegerArray() {
 		
 		sort2.sort(array5);
@@ -172,7 +172,7 @@ public class BubblesorterTest extends TestCase {
 				+ "failed.", true, array6[array6.length-1].equals(array6s[array6s.length-1]));
 		
 	}
-
+	
 	public void testSortModeAscDesc() {
 		sort1.sort("DESC", array1);
 		for(int i = 0; i < array1.length; i++) {
@@ -447,49 +447,229 @@ public class BubblesorterTest extends TestCase {
 				+ "failed.", true, listEmpty2.equals(listEmpty2s));
 	}
 	
-	public void testEmptyArraysSortAscending() {
-		sort1.sortAscending(arrayEmpty1);
-		assertEquals("Ascending sort of empty String array "
-				+ "failed.", null, arrayEmpty1);
-		sort2.sortAscending(arrayEmpty2);
-		assertEquals("Ascending sort of empty Integer array "
-				+ "failed.", null, arrayEmpty2);
+//TEST NullPointerExceptions
+
+	public void testDEFAULTSortModeIntegerArray0() {
+		boolean passed = false;
+		try {
+			sort2.sort(new Integer[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for sorting int array with length = 0 failed.", true, passed);		
+	}
+
+	public void testDEFAULTSortModeIntegerArrayNull() {
+		boolean passed = false;
+		Integer[] array = null;
+		try {
+			sort2.sort(array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for sorting int array with null reference failed.", true, passed);		
+	}
+
+	public void testDEFAULTSortModeIntegerListNull() {
+		boolean passed = false;
+		LinkedList<Integer> list = null;
+		try {
+			sort2.sort(list);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for sorting int List with null reference failed.", true, passed);		
 	}
 	
-	public void testEmptyArraysSortDescending() {
-		sort1.sortDescending(arrayEmpty1);
-		assertEquals("Descending sort of empty String array "
-				+ "failed.", null, arrayEmpty1);
-		sort2.sortDescending(arrayEmpty2);
-		assertEquals("Descending sort of empty Integer array "
-				+ "failed.", null, arrayEmpty2);
+
+	public void testDEFAULTSortModeStringArray0() {
+		boolean passed = false;
+		try {
+			sort1.sort(new String[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for sorting String array with length = 0 failed.", true, passed);		
+	}
+
+	public void testDEFAULTSortModeStringArrayNull() {
+		boolean passed = false;
+		String[] array = null;
+		try {
+			sort1.sort(array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for sorting String array with null reference failed.", true, passed);		
+	}
+
+	public void testASCSortModeStringArray0() {
+		boolean passed = false;
+		try {
+			sort1.sort("ASC", new String[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for ASC mode sorting String array with length = 0 failed.", true, passed);		
+	}
+
+	public void testASCSortModeStringArrayNull() {
+		boolean passed = false;
+		String[] array = null;
+		try {
+			sort1.sort("ASC", array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for ASC mode sorting String array with null reference failed.", true, passed);		
+	}
+
+	public void testASCSortModeStringListNull() {
+		boolean passed = false;
+		LinkedList<String> list = null;
+		try {
+			sort1.sort("ASC", list);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for ASC mode sorting String List with null reference failed.", true, passed);		
 	}
 	
-	public void testEmptyArraysSortModeDefault() {
-		sort1.sort(arrayEmpty1);
-		assertEquals("Ascending sort with default mode of empty String array "
-				+ "failed.", null, arrayEmpty1);
-		sort2.sort(arrayEmpty2);
-		assertEquals("Ascending sort with default mode of empty Integer array "
-				+ "failed.", null, arrayEmpty2);
+	public void testASCSortModeIntegerArray0() {
+		boolean passed = false;
+		try {
+			sort2.sort("ASC", new Integer[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for ASC sorting int array with length = 0 failed.", true, passed);		
+	}
+
+	public void testASCSortModeIntegerNull() {
+		boolean passed = false;
+		Integer[] array = null;
+		try {
+			sort2.sort("ASC", array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for ASC sorting int array with null reference failed.", true, passed);		
+	}
+
+	public void testDESCSortModeStringArray0() {
+		boolean passed = false;
+		try {
+			sort1.sort("DESC", new String[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for DESC sorting String array with length = 0 failed.", true, passed);		
+	}
+
+	public void testDESCSortModeStringArrayNull() {
+		boolean passed = false;
+		String[] array = null;
+		try {
+			sort1.sort("DESC", array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for DESC sorting String array with null reference failed.", true, passed);		
+	}
+
+	public void testDESCSortModeStringListNull() {
+		boolean passed = false;
+		LinkedList<String> list = null;
+		try {
+			sort1.sort("DESC", list);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for DESC sorting String List with null reference failed.", true, passed);		
+	}	
+	
+	public void testDESCSortModeIntegerArray0() {
+		boolean passed = false;
+		try {
+			sort2.sort("DESC", new Integer[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for DESC mode sorting int array with length = 0 failed.", true, passed);		
+	}
+
+	public void testDESCSortModeIntegerNull() {
+		boolean passed = false;
+		Integer[] array = null;
+		try {
+			sort2.sort("DESC", array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Default sort for DESC mode sorting int array with null reference failed.", true, passed);		
+	}
+
+	public void testAscendingSortModeIntegerArray0() {
+		boolean passed = false;
+		try {
+			sort2.sortAscending(new Integer[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int array with length = 0 failed.", true, passed);		
+	}
+
+	public void testAscendingIntegerArrayNull() {
+		boolean passed = false;
+		Integer[] array = null;
+		try {
+			sort2.sortAscending(array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int array with null reference failed.", true, passed);		
+	}
+
+	public void testAscendingIntegerListNull() {
+		boolean passed = false;
+		LinkedList<Integer> list = null;
+		try {
+			sort2.sortAscending(list);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int List with null reference failed.", true, passed);		
 	}
 	
-	public void testEmptyArraysSortModeASC() {
-		sort1.sort("ASC", arrayEmpty1);
-		assertEquals("Ascending sort with ASC mode of empty String array "
-				+ "failed.", null, arrayEmpty1);
-		sort2.sort("ASC", arrayEmpty2);
-		assertEquals("Ascending sort with ASC mode of empty Integer array "
-				+ "failed.", null, arrayEmpty2);
+	public void testDescendingSortModeIntegerArray0() {
+		boolean passed = false;
+		try {
+			sort2.sortDescending(new Integer[0]);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int array with length = 0 failed.", true, passed);		
 	}
-	
-	public void testEmptyArraysSortModeDESC() {
-		sort1.sort("DESC", arrayEmpty1);
-		assertEquals("Descending sort with DESC mode of empty String array "
-				+ "failed.", null, arrayEmpty1);
-		sort2.sort("DESC", arrayEmpty2);
-		assertEquals("Descending sort with DESC mode of empty Integer array "
-				+ "failed.", null, arrayEmpty2);
+
+	public void testDescendingSortIntegerNull() {
+		boolean passed = false;
+		Integer[] array = null;
+		try {
+			sort2.sortDescending(array);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int array with null reference failed.", true, passed);		
 	}
-	
+
+	public void testDescendingSortIntegerListNull() {
+		boolean passed = false;
+		LinkedList<Integer> list = null;
+		try {
+			sort2.sortDescending(list);
+		} catch (NullPointerException e) {
+			passed = true;
+		}
+		assertEquals("Ascending sort for sorting int List with null reference failed.", true, passed);		
+	}
 }
